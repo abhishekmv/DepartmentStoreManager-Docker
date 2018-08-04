@@ -1,0 +1,28 @@
+This is a simple spring boot application which uses postgres database and has simple rest endpoints to be test.
+
+--Jar
+To build the jar file, run the application as 'maven-install' and the jar file will be created in the target folder.
+
+--Docker commands to generate the images
+
+1. To build the docker image, go to the project root directory and run the below command 
+		Command - docker build -f Dockerfile -t docker-spring-boot-postgres .
+		
+2. To run the docker image and to hit the endpoints, run the below commands
+		Command - docker run -p 8080:8080 docker-spring-boot-postgres
+		
+--Docker compose
+1. From the terminal run start_app.sh shell script. It will clean up all the previous images and put up a fresh copy of your docker images.
+2. To stop docker compose, then run stop_app.sh shell script.
+3. Optional - to clean up images run cleanup.sh shell script.
+		
+Now check the endpoints if its working correctly. 
+
+Endpoints -- 
+
+1. http://localhost:8080/swagger-ui.html#/ - swagger documentation Api
+2. http://localhost:8080/findall - find all the product
+3. http://localhost:8080/findbyid?id=2 - find product by id
+4. http://localhost:8080/saveall - to save all the details to the database inside docker container
+
+

@@ -1,0 +1,18 @@
+version: '3'
+services:
+  departmentstoremanager:
+        build: .
+        ports: 
+          - 8080:8080
+        depends_on:
+          - postgresdb
+  postgresdb:
+    container_name: sample_postgres_db
+    image: 'postgres:9.6.8'
+    environment:
+            - POSTGRES_PASSWORD=test
+            - POSTGRES_USER=TestPostgres
+            - POSTGRES_DB=TestProject
+            - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 55432:5432
