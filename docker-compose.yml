@@ -6,6 +6,8 @@ services:
           - 8080:8080
         depends_on:
           - postgresdb
+        environment:
+          - "SPRING_PROFILES_ACTIVE=find"
   postgresdb:
     container_name: sample_postgres_db
     image: 'postgres:9.6.8'

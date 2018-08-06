@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2018 Abhishek M. Vijaya Kumar.
+ * All rights reserved.
+ */
 package com.storemanager;
 
 import org.springframework.beans.factory.annotation.Autowired;

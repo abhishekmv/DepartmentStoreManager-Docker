@@ -1,8 +1,13 @@
+/*
+ * Copyright (C) 2018 Abhishek M. Vijaya Kumar.
+ * All rights reserved.
+ */
 package com.storemanager.controller;
 
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,21 +20,14 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @Api(value = "API Description")
-// @Profile("dev")
-public class WebController {
+@Profile("find")
+public class FindController {
 
     @Autowired
     StoreManagerRepository repository;
 
-    // @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
-    // public void addProductDetails(@RequestBody ProductDetails product) {
-    //
-    // repository.save(new ProductDetails(product.getProductName(), product.getCategory(), product.getQuantity(),
-    // product.getPrice()));
-    // }
-
     @ApiOperation(value = "It will save all the product entered")
-    @GetMapping("/saveAll")
+    @GetMapping("/testSaveAll")
     public String process() {
         // save a single product
         repository.save(new ProductDetails("Rice", "Pulse", 5, 4));
@@ -61,13 +59,6 @@ public class WebController {
         return result;
     }
 
-    @ApiOperation(value = "API Description", hidden = true)
-    @GetMapping("/test")
-    public String testDocker() {
-        String result = "The application is working. huuurrrray";
-        return result;
-    }
-
     // @RequestMapping("/findbyproductname")
     // public String fetchDataByProductName(@RequestParam("productname") String productname) {
     // String result = "";
@@ -77,4 +68,5 @@ public class WebController {
     // }
     // return result;
     // }
+
 }
